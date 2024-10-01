@@ -22,6 +22,9 @@ def process_gray_image(img):
     Do a simple processing of an input gray scale image and return the processed image.
     # https://scikit-image.org/docs/stable/user_guide/data_types.html#image-processing-pipeline
     """
+    img = prewitt(img)
+    thresh = threshold_otsu(img)
+    img = img > thresh
     # Do something here:
     proc_img = img.copy()
     return img_as_ubyte(proc_img)
